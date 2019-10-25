@@ -1,0 +1,74 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  color: #fff;
+  background: #114;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.main {
+  width: 400px;
+  background: #225;
+  padding: 36px 64px;
+  
+  >.input {
+    display: flex;
+    justify-content: space-between;
+
+    input {
+      width: 160px;
+    }
+
+    button {
+      background: #AAE;
+      text-decoration: none;
+      border: none;
+      display: inline-block;
+      border-radius: 12px;
+      padding: 0px 18px;
+    }
+
+  }
+
+  >.names {
+    margin-bottom: 24px;
+
+    >.name {
+      margin-top: 6px;
+    }
+  }
+}
+button.add {
+
+}
+
+button.randomize {
+
+}
+
+.name {
+  width: 100px;
+  background: #337;
+  text-align: center;
+  padding: 6px;
+}
+
+.pods {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pods>.pod {
+  margin-top: 24px;
+}
+
+.pods>.pod>.name {
+  margin-top: 6px;
+}
