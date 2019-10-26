@@ -5,6 +5,7 @@ html, body {
 body {
   color: #fff;
   background: #114;
+  font-size: 18px;
 }
 
 #app {
@@ -23,25 +24,31 @@ body {
     justify-content: space-between;
 
     input {
-      width: 160px;
+        width: 160px;
+        height: 24px;
+        font-size: 20px;
     }
 
     button {
-      background: #AAE;
-      text-decoration: none;
-      border: none;
-      display: inline-block;
-      border-radius: 12px;
-      padding: 0px 18px;
+        background: #AAE;
+        text-decoration: none;
+        border: none;
+        display: inline-block;
+        padding: 0px 18px;
+        font-size: 22px;
     }
 
   }
 
   >.names {
-    margin-bottom: 24px;
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
 
     >.name {
       margin-top: 6px;
+      margin-right: 6px;
+      padding: 6px 12px;
     }
   }
 }

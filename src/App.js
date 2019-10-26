@@ -18,26 +18,28 @@ class AppComponent extends React.Component {
 
     render() {
       return (
-          <div className="main">
-            <div className="names">
-              {_.map(this.state.names, name => <div className="name">{name}</div>)}
-            </div>
+            <div className="main">
+                <div className="input">
+                    <input ref="name" />
+                    <button className="add" onClick={() => this.onAdd()}>Add</button>
+                    <button className="randomize" onClick={() => this.onRandomize()}>Randomize</button>
+                </div>
 
-            <div className="input">
-              <input ref="name" />
-              <button className="add" onClick={() => this.onAdd()}>Add</button>
-            <button className="randomize" onClick={() => this.onRandomize()}>Randomize</button>
-          </div>
+                <div className="names">
+                    {_.map(this.state.names, (name, idx) => 
+                        <div key={name} className="name" onClick={() => this.onRemove(idx)}>{name}</div>
+                    )}
+                </div>
 
-          <div className="pods">
-            {_.map(this.state.pods, pod =>
-              <div className="pod">
-                {_.map(pod, name =>
-                  <div className="name">{name}</div>
-              )}
-            </div>
-          )}
-        </div>
+                {<div className="pods">
+                    {_.map(this.state.pods, (pod, podIdx) =>
+                        <div key={podIdx} className="pod">
+                            {_.map(pod, (name, idx) =>
+                                <div key={idx} className="name">{name}</div>
+                            )}
+                        </div>
+                    )}  
+                </div>}
           </div>
       );
     }
@@ -49,14 +51,16 @@ class AppComponent extends React.Component {
       this.setState({names: names});
     }
 
-    onRandomize() {
+    onRemove(idx) {
       let names = this.state.names;
+      names.splice(idx, 1);
+      this.setState({names: names});
+    }
+
+    onRandomize() {
+      let names = _.union(this.state.names, _.flatten(this.state.pods));
       let pods = [];
       let c = 0;
-
-      if (names.length == 0  &&  this.state.pods.length > 0) {
-        names = _.flatten(this.state.pods);
-      }
 
       let podCount = Math.round(names.length / 4);
 
